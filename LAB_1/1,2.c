@@ -3,7 +3,7 @@
 
 int main() {
 
-    int num, x, y;
+    int num, y;
     int inf = INFINITY;
 
     printf("Input - x : ");
@@ -27,8 +27,8 @@ int main() {
 
     if (num >= 20) {
         if (num <= inf) {
-            x = 3 * num * 3 / 4 - 5;
-            printf("X = %d \n", x);
+            y = 3 * num * 3 / 4 - 5;
+            printf("X = %d \n", y);
         }
     }
 
