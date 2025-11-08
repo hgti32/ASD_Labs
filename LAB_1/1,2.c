@@ -5,6 +5,7 @@ int main() {
 
     int num, y;
     int inf = INFINITY;
+    int ninf = -INFINITY;
 
     printf("Input - x : ");
     scanf("%d", &num);
@@ -17,10 +18,10 @@ int main() {
         }
     }
 
-    else if (num >= -INFINITY) {
+    if (num >= ninf) {
         if (num <= - 30) {
             y = 3 * num * 3 / 4 - 5;
-            printf("X = %d \n", y);
+            printf("Y = %d \n", y);
             return 0;
         }
     }
@@ -28,7 +29,8 @@ int main() {
     if (num >= 20) {
         if (num <= inf) {
             y = 3 * num * 3 / 4 - 5;
-            printf("X = %d \n", y);
+            printf("Y = %d \n", y);
+            return 0;
         }
     }
 
