@@ -13,11 +13,9 @@ int main() {
     for (i = 1; i <= n; i++) {
         product = 1.0;
         for (j = 1; j <= i; j++) {
-            product *= (j + 1) * sin((double)j);
+            product *= (j + 1) * sin(j);
         }
         S += product / (i * (i + 1));
     }
-    printf("Result S = %lf\n", S);
-
-    return 0;
+    printf("Result: \n n = %d \n S = %.7f\n", n, S);
 }
