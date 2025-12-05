@@ -7,15 +7,27 @@ int main() {
     double S = 0.0;
     double product;
 
+    long long op_count = 0;
+
     printf("Input n: ");
     scanf("%d", &n);
 
-    for (i = 1; i <= n; i++) {
-        product = 1.0;
-        for (j = 1; j <= i; j++) {
-            product *= (j + 1) * sin(j);
+    if (n > 1) {
+        for (i = 1; i <= n; i++) {
+            product = 1.0;
+
+            for (j = 1; j <= i; j++) {
+                product *= (j + 1) * sin(j);
+                op_count += 4;
+            }
+            S += product / (i * (i + 1));
+
+            op_count += 4;
         }
-        S += product / (i * (i + 1));
     }
+
     printf("Result: \n n = %d \n S = %.7f\n", n, S);
+    printf("Operations count: %lld\n", op_count);
+
+    return 0;
 }
