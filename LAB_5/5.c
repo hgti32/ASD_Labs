@@ -38,6 +38,27 @@ void sortColumnInsertion(int matrix[M][N], int colIdx) {
     }
 }
 
+void sortColumnInsertionReverse(int matrix[M][N], int colIdx) {
+    for (int i = 1; i < M; i++) {
+        int key = matrix[i][colIdx];
+        int pos = i;
+
+        for (int k = 0; k < i; k++) {
+            if (matrix[k][colIdx] < key) {
+                pos = k;
+                break;
+            }
+        }
+
+        if (pos != i) {
+            for (int k = i; k > pos; k--) {
+                matrix[k][colIdx] = matrix[k-1][colIdx];
+            }
+            matrix[pos][colIdx] = key;
+        }
+    }
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -45,22 +66,34 @@ int main() {
     srand(time(NULL));
 
     int A[M][N];
+    int CopyA[M][N];
+    int ReverseA[M][N];
 
     for (int i = 0; i < M; i++) {
         for (int j = 0; j < N; j++) {
-            A[i][j] = rand() % 100;
+            int num = rand() % 100;
+            A[i][j] = num;
+            CopyA[i][j] = num;
+            ReverseA[i][j] = num;
         }
     }
-
-    printf(">>> ѕочаткова матриц€ (до сортуванн€):\n");
-    printMatrix(A);
 
     for (int j = 0; j < N; j++) {
         sortColumnInsertion(A, j);
     }
 
-    printf(">>> ¬≥дсортована матриц€ (по стовпчиках):\n");
+    for (int j = 0; j < N; j++) {
+        sortColumnInsertionReverse(ReverseA, j);
+    }
+
+    printf(">>>¬же в≥дсортована матриц€:\n");
     printMatrix(A);
+
+    printf(">>>ѕочаткова матриц€:\n");
+    printMatrix(CopyA);
+
+    printf(">>>ќбернено в≥дсортований стан:\n");
+    printMatrix(ReverseA);
 
     system("pause");
     return 0;
